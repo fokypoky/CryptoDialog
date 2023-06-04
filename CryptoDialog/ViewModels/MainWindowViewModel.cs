@@ -66,11 +66,17 @@ public class MainWindowViewModel : ViewModel
     {
         get => new RelayCommand((object p) =>
         {
+            Log = "";
             int g = new Random().Next(2, 30);
             BigInteger prime = _primeNumberGenerator.Generate(16);
-            
             ClientA = new Client(prime, g);
+            
+            Log += $"\nP = {prime} - большое простое число. Прошло проверку тестами Ферма и Миллера-Рабина";
+            Log += $"\nG = {g} - обратное числу {prime}";
+            Log += $"\n\nКлиент А: Закрытый ключ = {ClientA.K}, Открытый ключ = {ClientA.Kc}";
+            
             ClientB = new Client(prime, g);
+            Log += $"\nКлиент Б: Закрытый ключ = {ClientB.K}, Открытый ключ = {ClientB.Kc}";
         });
     }
 
@@ -83,12 +89,15 @@ public class MainWindowViewModel : ViewModel
                 MessageBox.Show("Не установлены параметры для генерации ключа");
                 return;
             }
+
+            Log += "\n-------------------";
+            Log += "\nКлиент А и Клиент Б обмениваются открытыми ключами и генерируют общий ключ";
             
             ClientA.MakeKey(ClientB.Kc);
             ClientB.MakeKey(ClientA.Kc);
-            Log += $"\nКлиент А: {ClientB.Kc} ^ {ClientA.K} mod {ClientA.P} = {ClientA.Key}";
-            Log += $"\nКлиент Б: {ClientA.Kc} ^ {ClientB.K} mod {ClientB.P} = {ClientB.Key}";
-
+            Log += $"\nКлиент А: Key = {ClientB.Kc} ^ {ClientA.K} mod {ClientA.P} = {ClientA.Key}";
+            Log += $"\nКлиент Б: Key = {ClientA.Kc} ^ {ClientB.K} mod {ClientB.P} = {ClientB.Key}";
+            
         });
     }
     #endregion

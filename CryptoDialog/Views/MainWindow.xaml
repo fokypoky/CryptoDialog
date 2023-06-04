@@ -29,9 +29,9 @@
         
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
-                <Button Content="Сгенирировать p, g"
+                <Button Content="Сгенирировать P, G"
                         Command="{Binding GeneratePaCommand}"/>
-                <Button Content="Сформировать ключ"
+                <Button Content="Сформировать общий ключ"
                         Command="{Binding MakeKeyCommand}"/>
             </StackPanel>
         </Grid>
@@ -51,11 +51,11 @@
                     </StackPanel>
                     <!--K-->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="k = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="Закрытый ключ = " Margin="5, 0, 0,0"/>
                         <TextBlock Text="{Binding ClientA.K}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="kc = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="Открытый ключ = " Margin="5, 0, 0,0"/>
                         <TextBlock Text="{Binding ClientA.Kc}"/>
                     </StackPanel>
                 </StackPanel>
@@ -78,11 +78,11 @@
                     </StackPanel>
                     <!--K-->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="k = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="Закрытый ключ = " Margin="5, 0, 0,0"/>
                         <TextBlock Text="{Binding ClientB.K}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="kc = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="Открытый ключ = " Margin="5, 0, 0,0"/>
                         <TextBlock Text="{Binding ClientB.Kc}"/>
                     </StackPanel>
                 </StackPanel>
