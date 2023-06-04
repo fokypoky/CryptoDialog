@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{41431430-97CB-4381-8B46-2305BDDF0D22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoDialog", "CryptoDialog\CryptoDialog.csproj", "{C3BAAA11-3010-469E-9E5B-30D45357AD9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoLib", "CryptoLib\CryptoLib.csproj", "{91591462-BF54-410F-A910-F2D7D1FDD558}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41431430-97CB-4381-8B46-2305BDDF0D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41431430-97CB-4381-8B46-2305BDDF0D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41431430-97CB-4381-8B46-2305BDDF0D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41431430-97CB-4381-8B46-2305BDDF0D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BAAA11-3010-469E-9E5B-30D45357AD9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BAAA11-3010-469E-9E5B-30D45357AD9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BAAA11-3010-469E-9E5B-30D45357AD9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BAAA11-3010-469E-9E5B-30D45357AD9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91591462-BF54-410F-A910-F2D7D1FDD558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91591462-BF54-410F-A910-F2D7D1FDD558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91591462-BF54-410F-A910-F2D7D1FDD558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91591462-BF54-410F-A910-F2D7D1FDD558}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

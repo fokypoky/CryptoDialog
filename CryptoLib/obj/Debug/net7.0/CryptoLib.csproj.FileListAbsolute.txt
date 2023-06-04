@@ -1,0 +1,12 @@
+D:\RiderProjects\CryptoDialog\CryptoLib\bin\Debug\net7.0\CryptoLib.deps.json
+D:\RiderProjects\CryptoDialog\CryptoLib\bin\Debug\net7.0\CryptoLib.dll
+D:\RiderProjects\CryptoDialog\CryptoLib\bin\Debug\net7.0\CryptoLib.pdb
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\CryptoLib.csproj.AssemblyReference.cache
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\CryptoLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\CryptoLib.AssemblyInfoInputs.cache
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\CryptoLib.AssemblyInfo.cs
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\CryptoLib.csproj.CoreCompileInputs.cache
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\CryptoLib.dll
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\refint\CryptoLib.dll
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\CryptoLib.pdb
+D:\RiderProjects\CryptoDialog\CryptoLib\obj\Debug\net7.0\ref\CryptoLib.dll
