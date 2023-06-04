@@ -7,7 +7,7 @@ namespace TestApp;
 
 class Program
 {
-    private static int length = 512;
+    private static int length = 256;
     static void Main()
     {
         var generator = new PrimeNumberGenerator(new List<IPrimeNumberTest>()
@@ -16,7 +16,8 @@ class Program
         });
 
         var p = generator.Generate(length);
-        Console.WriteLine(p);
-        
+        //Console.WriteLine(CalculatePrimitiveRoot(p));
+        //Console.WriteLine(CalculatePrimitiveRoot(p));
+        Console.ReadLine();
     }
 }

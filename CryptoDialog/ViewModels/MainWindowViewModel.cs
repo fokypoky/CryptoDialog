@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Numerics;
+using CryptoDialog.Models;
 using CryptoDialog.ViewModels.Base;
 using CryptoLib.Encryptors;
-using CryptoLib.Encryptors.Implementation;
 using CryptoLib.Generators;
 using CryptoLib.Generators.Implementation;
 using CryptoLib.Testers;
@@ -14,6 +15,24 @@ public class MainWindowViewModel : ViewModel
     private IEncryptor _encryptor;
     private List<IPrimeNumberTest> _primeNumberTests;
     private IPrimeNumberGenerator _primeNumberGenerator;
+
+    private Client _clientA;
+    private Client _clientB;
+
+    private BigInteger _p;
+    private BigInteger _a;
+
+    public BigInteger P
+    {
+        get => _p;
+        set => SetField(ref _p, value);
+    }
+
+    public BigInteger A
+    {
+        get => _a;
+        set => SetField(ref _a, value);
+    }
     
     public MainWindowViewModel()
     {
@@ -24,7 +43,7 @@ public class MainWindowViewModel : ViewModel
         };
 
         _primeNumberGenerator = new PrimeNumberGenerator(_primeNumberTests);
-
-        _encryptor = new Encryptor();
+        
+        //_encryptor = new Encryptor();
     }
 }
