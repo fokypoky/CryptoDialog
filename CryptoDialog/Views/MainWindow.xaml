@@ -11,6 +11,11 @@
     <Window.DataContext>
         <vmodel:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -24,15 +29,69 @@
         
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
-                <Button Width="300" Margin="10"/>
+                <Button Content="Сгенирировать p, g"
+                        Command="{Binding GeneratePaCommand}"/>
+                <Button Content="Сформировать ключ"
+                        Command="{Binding MakeKeyCommand}"/>
             </StackPanel>
         </Grid>
-        
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Border BorderThickness="1" BorderBrush="Black">
+                <StackPanel>
+                    <TextBlock Text="Клиент А" TextAlignment="Center"/>
+                    <!--P-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="p = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientA.P}"/>
+                    </StackPanel>
+                    <!--A-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="g = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientA.G}"/>
+                    </StackPanel>
+                    <!--K-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="k = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientA.K}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="kc = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientA.Kc}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
-            
+            <Border BorderBrush="Black" 
+                BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Клиент Б" TextAlignment="Center"/>
+                    <!--P-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="p = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientB.P}"/>
+                    </StackPanel>
+                    <!--A-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="g = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientB.G}"/>
+                    </StackPanel>
+                    <!--K-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="k = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientB.K}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="kc = " Margin="5, 0, 0,0"/>
+                        <TextBlock Text="{Binding ClientB.Kc}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
         </Grid>
         <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
-            
+            <TextBox Text="{Binding Log,
+             UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"/>
         </Grid>
     </Grid>
 </Window>
