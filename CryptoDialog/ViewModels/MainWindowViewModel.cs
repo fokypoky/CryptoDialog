@@ -30,6 +30,21 @@ public class MainWindowViewModel : ViewModel
 
     private string _log = "";
 
+    private bool _keysGenerated;
+    private bool _clientsConfigured;
+
+    public bool ClientsConfigured
+    {
+        get => _clientsConfigured;
+        set => SetField(ref _clientsConfigured, value);
+    }
+
+    public bool KeysGenerated
+    {
+        get => _keysGenerated;
+        set => SetField(ref _keysGenerated, value);
+    }
+    
     public string Log
     {
         get => _log;
@@ -77,6 +92,8 @@ public class MainWindowViewModel : ViewModel
             
             ClientB = new Client(prime, g);
             Log += $"\nКлиент Б: Закрытый ключ = {ClientB.K}, Открытый ключ = {ClientB.Kc}";
+
+            ClientsConfigured = true;
         });
     }
 
@@ -99,6 +116,7 @@ public class MainWindowViewModel : ViewModel
             Log += $"\nКлиент Б: Key = {ClientA.Kc} ^ {ClientB.K} mod {ClientB.P} = {ClientB.Key}";
            
             Log += "\n-------------------";
+            KeysGenerated = true;
         });
     }
     #endregion

@@ -32,7 +32,8 @@
                 <Button Content="Сгенирировать P, G"
                         Command="{Binding GeneratePaCommand}"/>
                 <Button Content="Сформировать общий ключ"
-                        Command="{Binding MakeKeyCommand}"/>
+                        Command="{Binding MakeKeyCommand}"
+                        IsEnabled="{Binding ClientsConfigured}"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
@@ -69,9 +70,11 @@
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Margin="5,10,0,10"/>
+                        <TextBox Grid.Column="0" Margin="5,10,0,10"
+                                 IsEnabled="{Binding KeysGenerated}"/>
                         <Button Grid.Column="1" BorderThickness="0"
-                                Content="Отправить"/>
+                                Content="Отправить"
+                                IsEnabled="{Binding KeysGenerated}"/>
                     </Grid>
                 </Grid>
             </Border>
@@ -111,8 +114,10 @@
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Margin="5,10,0,10"/>
-                        <Button Grid.Column="1" BorderThickness="0" Content="Отправить"/>
+                        <TextBox Margin="5,10,0,10"
+                                 IsEnabled="{Binding KeysGenerated}"/>
+                        <Button Grid.Column="1" BorderThickness="0" Content="Отправить"
+                                IsEnabled="{Binding KeysGenerated}"/>
                     </Grid>
                 </Grid>
             </Border>
