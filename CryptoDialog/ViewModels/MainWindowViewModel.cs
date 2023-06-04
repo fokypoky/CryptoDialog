@@ -97,7 +97,8 @@ public class MainWindowViewModel : ViewModel
             ClientB.MakeKey(ClientA.Kc);
             Log += $"\nКлиент А: Key = {ClientB.Kc} ^ {ClientA.K} mod {ClientA.P} = {ClientA.Key}";
             Log += $"\nКлиент Б: Key = {ClientA.Kc} ^ {ClientB.K} mod {ClientB.P} = {ClientB.Key}";
-            
+           
+            Log += "\n-------------------";
         });
     }
     #endregion
