@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:CryptoDialog"
         mc:Ignorable="d"
         xmlns:vmodel="clr-namespace:CryptoDialog.ViewModels"
-        Title="MainWindow" Height="450" Width="800"
-            ResizeMode="NoResize">
+        Title="Crypto Dialog" Height="450" Width="800"
+        MinHeight="450" MinWidth="800">
     <Window.DataContext>
         <vmodel:MainWindowViewModel/>
     </Window.DataContext>
@@ -71,10 +71,15 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <TextBox Grid.Column="0" Margin="5,10,0,10"
-                                 IsEnabled="{Binding KeysGenerated}"/>
+                                 IsEnabled="{Binding KeysGenerated}"
+                                 Text="{Binding ClientAMessage,
+                                    UpdateSourceTrigger=PropertyChanged}"
+                                 />
                         <Button Grid.Column="1" BorderThickness="0"
                                 Content="Отправить"
-                                IsEnabled="{Binding KeysGenerated}"/>
+                                IsEnabled="{Binding KeysGenerated}"
+                                Command="{Binding SendMessageCommand}"
+                                CommandParameter="{Binding ClientA}"/>
                     </Grid>
                 </Grid>
             </Border>
@@ -115,9 +120,13 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBox Margin="5,10,0,10"
-                                 IsEnabled="{Binding KeysGenerated}"/>
+                                 IsEnabled="{Binding KeysGenerated}"
+                                 Text="{Binding ClientBMessage,
+                                    UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Grid.Column="1" BorderThickness="0" Content="Отправить"
-                                IsEnabled="{Binding KeysGenerated}"/>
+                                IsEnabled="{Binding KeysGenerated}"
+                                Command="{Binding SendMessageCommand}"
+                                CommandParameter="{Binding ClientB}"/>
                     </Grid>
                 </Grid>
             </Border>

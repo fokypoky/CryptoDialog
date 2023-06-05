@@ -9,6 +9,7 @@ using CryptoDialog.Infrastructure.Commands;
 using CryptoDialog.Models;
 using CryptoDialog.ViewModels.Base;
 using CryptoLib.Encryptors;
+using CryptoLib.Encryptors.Implementation;
 using CryptoLib.Generators;
 using CryptoLib.Generators.Implementation;
 using CryptoLib.Testers;
@@ -33,6 +34,21 @@ public class MainWindowViewModel : ViewModel
     private bool _keysGenerated;
     private bool _clientsConfigured;
 
+    private string _clientAMessage;
+    private string _clientBMessage;
+
+    public string ClientAMessage
+    {
+        get => _clientAMessage;
+        set => SetField(ref _clientAMessage, value);
+    }
+
+    public string ClientBMessage
+    {
+        get => _clientBMessage;
+        set => SetField(ref _clientBMessage, value);
+    }
+    
     public bool ClientsConfigured
     {
         get => _clientsConfigured;
@@ -119,6 +135,30 @@ public class MainWindowViewModel : ViewModel
             KeysGenerated = true;
         });
     }
+
+    public ICommand SendMessageCommand
+    {
+        get => new RelayCommand((object parameter) =>
+        {
+            if (parameter is Client && parameter == ClientA)
+            {
+                string encryptedMessage = _encryptor.Encrypt(ClientA.Key, ClientAMessage);
+                Log += $"\n\nКлиент А: шифрует сообщение {ClientAMessage} общим ключом {ClientA.Key} и отправляет Клиенту Б. Зашифрованное сообщение = {encryptedMessage}";
+                string decryptedMessage = _encryptor.Decrypt(ClientB.Key, encryptedMessage);
+                Log +=
+                    $"\nКлиент Б: получает сообщение Клиента A: {encryptedMessage} и расшифровывает его общим ключом {ClientB.Key}. Расшифрованное сообщение = {decryptedMessage}";
+            }
+
+            if (parameter is Client && parameter == ClientB)
+            {
+                string encryptedMessage = _encryptor.Encrypt(ClientB.Key, ClientBMessage);
+                Log += $"\n\nКлиент B: шифрует сообщение {ClientBMessage} общим ключом {ClientB.Key} и отправляет Клиенту А. Зашифрованное сообщение = {encryptedMessage}";
+                string decryptedMessage = _encryptor.Decrypt(ClientB.Key, encryptedMessage);
+                Log +=
+                    $"\nКлиент А: получает сообщение Клиента Б: {encryptedMessage} и расшифровывает его общим ключом {ClientA.Key}. Расшифрованное сообщение = {decryptedMessage}";
+            }
+        });
+    }
     #endregion
     public MainWindowViewModel()
     {
@@ -129,6 +169,6 @@ public class MainWindowViewModel : ViewModel
         };
 
         _primeNumberGenerator = new PrimeNumberGenerator(_primeNumberTests);
-        //_encryptor = new Encryptor();
+        _encryptor = new AESEncryptor();
     }
 }

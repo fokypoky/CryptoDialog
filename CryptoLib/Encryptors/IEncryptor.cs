@@ -1,7 +1,9 @@
-﻿namespace CryptoLib.Encryptors;
+﻿using System.Numerics;
+
+namespace CryptoLib.Encryptors;
 
 public interface IEncryptor
 {
-    string Encrypt(int key, string message);
-    string Decrypt(int key, string message);
+    string Encrypt(BigInteger key, string message);
+    string Decrypt(BigInteger key, string message);
 }

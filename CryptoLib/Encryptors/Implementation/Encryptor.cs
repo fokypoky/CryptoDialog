@@ -1,4 +1,5 @@
-﻿using CryptoLib.Generators;
+﻿using System.Numerics;
+using CryptoLib.Generators;
 
 namespace CryptoLib.Encryptors.Implementation;
 
@@ -9,6 +10,6 @@ public class Encryptor : IEncryptor
     {
     }
     
-    public string Encrypt(int key, string message) => message;
-    public string Decrypt(int key, string message) => message;
+    public string Encrypt(BigInteger key, string message) => message;
+    public string Decrypt(BigInteger key, string message) => message;
 }
