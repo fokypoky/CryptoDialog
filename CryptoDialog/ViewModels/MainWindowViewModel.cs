@@ -126,8 +126,8 @@ public class MainWindowViewModel : ViewModel
             Log += "\n-------------------";
             Log += "\nКлиент А и Клиент Б обмениваются открытыми ключами и генерируют общий ключ";
             
-            ClientA.MakeKey(ClientB.Kc);
-            ClientB.MakeKey(ClientA.Kc);
+            ClientA.SetSharedKey(ClientB.Kc);
+            ClientB.SetSharedKey(ClientA.Kc);
             Log += $"\nКлиент А: Key = {ClientB.Kc} ^ {ClientA.K} mod {ClientA.P} = {ClientA.Key}";
             Log += $"\nКлиент Б: Key = {ClientA.Kc} ^ {ClientB.K} mod {ClientB.P} = {ClientB.Key}";
            

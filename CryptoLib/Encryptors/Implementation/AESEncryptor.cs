@@ -28,14 +28,14 @@ public class AESEncryptor : IEncryptor
     public string Encrypt(BigInteger key, string message)
     {
         byte[] keyBytes = Encoding.UTF8.GetBytes(key.ToString());
-        byte[] paddedKey = new byte[32]; // 32 байта для AES-256
+        byte[] paddedKey = new byte[32];
 
         Array.Copy(keyBytes, paddedKey, Math.Min(keyBytes.Length, paddedKey.Length));
 
         using (Aes aesAlg = Aes.Create())
         {
             aesAlg.Key = paddedKey;
-            aesAlg.Mode = CipherMode.ECB; // Используется режим шифрования ECB (электронный кодовый блок)
+            aesAlg.Mode = CipherMode.ECB;
             ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
             byte[] encryptedBytes;
@@ -57,14 +57,14 @@ public class AESEncryptor : IEncryptor
     public string Decrypt(BigInteger key, string message)
     {
         byte[] keyBytes = Encoding.UTF8.GetBytes(key.ToString());
-        byte[] paddedKey = new byte[32]; // 32 байта для AES-256
+        byte[] paddedKey = new byte[32];
 
         Array.Copy(keyBytes, paddedKey, Math.Min(keyBytes.Length, paddedKey.Length));
 
         using (Aes aesAlg = Aes.Create())
         {
             aesAlg.Key = paddedKey;
-            aesAlg.Mode = CipherMode.ECB; // Используется режим шифрования ECB (электронный кодовый блок)
+            aesAlg.Mode = CipherMode.ECB;
             ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
             byte[] cipherBytes = Convert.FromBase64String(message);
